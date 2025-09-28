@@ -34,7 +34,7 @@ fi
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Alacritty"
+	option_1=" tilix"
 	option_2=" Thunar"
 	option_3=" Geany"
 	option_4=" Ranger"
