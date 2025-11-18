@@ -78,15 +78,14 @@ $ git clone --depth=1 https://github.com/megvadulthangya/awesome-rofi.git
 
 - Change to cloned directory and make `setup.sh` executable -
 ```
-$ cd rofi
-$ chmod +x setup.sh
+$ cd awesome-rofi
 ```
 
-- Run `setup.sh` to install the configs -
+- Run with sudo `setup.sh` to install the configs -
 ```
-$ ./setup.sh
+$ sudo bash setup.sh
 
-[*] Installing fonts...
+[*] Installing fonts system wide...
 [*] Updating font cache...
 
 [*] Creating a backup of your rofi configs...
