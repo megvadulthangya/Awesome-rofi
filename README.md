@@ -117,9 +117,15 @@ sudo bash setup.sh
     [*] Updating font cache...
     [*] Creating a backup of your rofi configs...
     [*] Installing rofi configs...
+    [*] Updating /etc/skel with new rofi configuration...
     [*] Successfully Installed.
 
 After this, the themes are fully installed on your system.
+
+> **Note**: The installer also updates the `/etc/skel` directory.  
+> This ensures that any newly created users will automatically receive the Rofi configuration without running the installer themselves.  
+> Existing users will need to re-run the setup script to apply the latest changes.
+
 
 ------------------------------------------------------------------------
 
