@@ -442,7 +442,7 @@ theme='style-1'
 
 There's a `$HOME/.config/rofi/scripts` directory, which contains links to each script. you can execute these links to open any type of Launcher, Applet or Powermenu.
 
-You can add `$HOME/.config/rofi/scripts` directory to your `$PATH` variable so that entering `t7_launcher` in the terminal (or executing this command) will summon the ***type-7 launcher***. you can do it by -
+~~You can add `$HOME/.config/rofi/scripts` directory to your `$PATH` variable so that entering `t7_launcher` in the terminal (or executing this command) will summon the ***type-7 launcher***. you can do it by -
 
 - In `bash`
 ``` bash
@@ -454,7 +454,20 @@ echo "PATH=$PATH:~/.config/rofi/scripts" >> ~/.profile
 ``` zsh
 # Edit .zshrc and add this line
 export PATH=$HOME/.config/rofi/scripts:$PATH
-```
+```~~
+---
+
+## Correct Approach
+
+The `$HOME/.config/rofi/scripts` directory should not be used as a location for binaries or symlinks meant to be executed system-wide. This is a workaround and considered poor practice.
+
+To ensure the scripts can be executed reliably in any environment (including window managers such as awesome-wm), place the symlinks in standard system-wide binary directories:
+
+- `/usr/local/bin` (recommended)
+- `/usr/bin` (typically managed by the package manager)
+
+These directories are included in the global `PATH`, making the commands available universally without user-specific hacks.
+ 
 
 > **Warning:** After changing the shell files, Logout and Login back again to update the `$PATH` environment variable.
 
@@ -462,7 +475,7 @@ export PATH=$HOME/.config/rofi/scripts:$PATH
 
 #### with polybar
 
-You can use these `launchers`, `powermenus` or `applets` with polybar by simply adding a **module** like that:
+You can use these `launchers`, `powermenus` or `applet` with polybar by simply adding a **module** like that:
 
 ```ini
 ;; Application Launcher Module
@@ -473,7 +486,7 @@ content = 異
 content-background = black
 content-foreground = green
 
-click-left = ~/.config/rofi/launchers/type-1/launcher.sh
+click-left = ~~~/.config/rofi/launchers/type-1/launcher.sh~~ --> Use launcher_t1 
 click-right = launcher_t1
 
 ;; Power Menu Module
@@ -484,9 +497,9 @@ content = 襤
 content-background = black
 content-foreground = red
 
-click-left = ~/.config/rofi/powermenu/type-1/powermenu.sh
+click-left = ~~~/.config/rofi/powermenu/type-1/powermenu.sh~~ -->  USE powermenu_t1
 click-right = powermenu_t1
-```
+``` 
 
 #### with i3wm
 
@@ -495,7 +508,7 @@ You can also use them with the `keybindings` on your **window manager**, For exa
 ```bash
 set $mod Mod4
 
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh
+bindsym $mod+p exec --no-startup-id ~~~/.config/rofi/launchers/type-2/launcher.sh~~ Hell no! Just use launcher_t2
 bindsym $mod+x exec --no-startup-id powermenu_t2
 ```
 
@@ -512,7 +525,7 @@ Same thing can be done with `openbox` by adding these lines to **`rc.xml`** file
     </keybind>
     <keybind key="W-x">
       <action name="Execute">
-        <command>~/.config/rofi/powermenu/type-3/powermenu.sh</command>
+        <command>~~~/.config/rofi/powermenu/type-3/powermenu.sh~~ powermenu_t3</command>
       </action>
     </keybind>
   </keyboard>

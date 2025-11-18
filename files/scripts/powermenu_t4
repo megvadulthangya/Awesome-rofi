@@ -1,1 +1,5 @@
-../powermenu/type-4/powermenu.sh
+#!/bin/bash
+# Indítja az aktuàlis felhasználó powermenu_t4 programját.
+
+# Közvetlen hivatkozás a cél scriptre, /root feloldásával.
+"$HOME/.config/rofi/powermenu/type-4/powermenu.sh" "$@"

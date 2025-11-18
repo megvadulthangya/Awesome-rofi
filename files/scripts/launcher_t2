@@ -1,1 +1,5 @@
-../launchers/type-2/launcher.sh
+#!/bin/bash
+# Indítja az aktuàlis felhasználó launcher_t2 programját.
+
+# Közvetlen hivatkozás a cél scriptre, /root feloldásával.
+"$HOME/.config/rofi/launchers/type-2/launcher.sh" "$@"

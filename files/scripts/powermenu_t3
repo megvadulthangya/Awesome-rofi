@@ -1,1 +1,5 @@
-../powermenu/type-3/powermenu.sh
+#!/bin/bash
+# Indítja az aktuàlis felhasználó powermenu_t3 programját.
+
+# Közvetlen hivatkozás a cél scriptre, /root feloldásával.
+"$HOME/.config/rofi/powermenu/type-3/powermenu.sh" "$@"
