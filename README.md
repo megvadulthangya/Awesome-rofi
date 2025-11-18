@@ -17,7 +17,13 @@
   <a href="https://github.com/adi1090x/rofi#powermenus" target="_blank"><img alt="undefined" src="https://img.shields.io/badge/powermenus-pink?style=for-the-badge"></a>
 </p>
 
-<p align="center">A huge collection of <a href="https://github.com/davatorium/rofi">Rofi</a> based custom <i>Applets</i>, <i>Launchers</i> & <i>Powermenus</i>.</p>
+<p align="center">
+  A huge collection of 
+  <a href="https://github.com/davatorium/rofi">Rofi</a>-based custom 
+  <i>Applets</i>, <i>Launchers</i> & <i>Powermenus</i>, fully compatible with Awesome WM.<br>
+  This fork includes the necessary adjustments to ensure seamless operation within the Awesome WM environment.
+</p>
+
 
 <details>
 <summary><b><code>Launchers</code></b></summary>
