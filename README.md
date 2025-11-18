@@ -440,44 +440,24 @@ theme='style-1'
 
 #### Simple way to execute scripts
 
-There's a `$HOME/.config/rofi/scripts` directory, which contains links to each script. you can execute these links to open any type of Launcher, Applet or Powermenu.
+After installation, all launchers and powermenus are available
+system-wide as executable commands.\
+You can run any launcher or powermenu simply by calling:
 
-You can add `$HOME/.config/rofi/scripts` directory to your `$PATH` variable so that entering `t7_launcher` in the terminal (or executing this command) will summon the ***type-7 launcher***. you can do it by -
+-   `launcher_t1` through `launcher_t7`
+-   `powermenu_t1` through `powermenu_t6`
 
-- In `bash`
-``` bash
-# Add directory to the $PATH variable
-echo "PATH=$PATH:~/.config/rofi/scripts" >> ~/.profile
-```
-
-- In `zsh` (oh-my-zsh)
-``` zsh
-# Edit .zshrc and add this line
-export PATH=$HOME/.config/rofi/scripts:$PATH
-``
----
-
-## Correct Approach
-
-The `$HOME/.config/rofi/scripts` directory should not be used as a location for binaries or symlinks meant to be executed system-wide. This is a workaround and considered poor practice.
-
-To ensure the scripts can be executed reliably in any environment (including window managers such as awesome-wm), place the symlinks in standard system-wide binary directories:
-
-- `/usr/local/bin` (recommended)
-- `/usr/bin` (typically managed by the package manager)
-
-These directories are included in the global `PATH`, making the commands available universally without user-specific hacks.
- 
-
-> **Warning:** After changing the shell files, Logout and Login back again to update the `$PATH` environment variable.
+Each command opens the corresponding launcher, applet, or powermenu
+directly, without any additional configuration.
 
 ## Usage
 
 #### with polybar
 
-You can use these `launchers`, `powermenus` or `applet` with polybar by simply adding a **module** like that:
+You can integrate the launchers and powermenus into **polybar** by
+defining modules like:
 
-```ini
+``` ini
 ;; Application Launcher Module
 [module/launcher]
 type = custom/text
@@ -486,7 +466,7 @@ content = 異
 content-background = black
 content-foreground = green
 
-click-left = ~/.config/rofi/launchers/type-1/launcher.sh --> Use launcher_t1 
+click-left = launcher_t1
 click-right = launcher_t1
 
 ;; Power Menu Module
@@ -497,26 +477,27 @@ content = 襤
 content-background = black
 content-foreground = red
 
-click-left = ~/.config/rofi/powermenu/type-1/powermenu.sh -->  USE powermenu_t1
+click-left = powermenu_t1
 click-right = powermenu_t1
-``` 
+```
 
 #### with i3wm
 
-You can also use them with the `keybindings` on your **window manager**, For example:
+You can bind them directly in your **i3wm** configuration. For example:
 
-```bash
+``` bash
 set $mod Mod4
 
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-2/launcher.sh Hell no! Just use launcher_t2
+bindsym $mod+p exec --no-startup-id launcher_t2
 bindsym $mod+x exec --no-startup-id powermenu_t2
 ```
 
 #### with Openbox
 
-Same thing can be done with `openbox` by adding these lines to **`rc.xml`** file:
+You can also use them in **Openbox** by adding entries to your
+**`rc.xml`**:
 
-```xml
+``` xml
   <keyboard>
     <keybind key="W-p">
       <action name="Execute">
@@ -525,12 +506,29 @@ Same thing can be done with `openbox` by adding these lines to **`rc.xml`** file
     </keybind>
     <keybind key="W-x">
       <action name="Execute">
-        <command>~/.config/rofi/powermenu/type-3/powermenu.sh powermenu_t3</command>
+        <command>powermenu_t3</command>
       </action>
     </keybind>
   </keyboard>
 ```
 
+#### with awesome-wm
+
+Because the commands are available system-wide, they can be used easily
+in **awesome-wm** as well.\
+Add keybindings like the following to your **`rc.lua`**:
+
+``` lua
+awful.key({ modkey }, "r", function()
+    awful.spawn('launcher_t3')
+end,
+{description = 'Program Launcher', group = 'awesome'}),
+
+awful.key({ modkey, "Shift" }, "q", function()
+    awful.spawn("powermenu_t1")
+end,
+{description = "Sign Out/Power Options", group = "awesome"}),
+```
 ## FYI
 
 - For previous versions, check the respective branch, [1.7.0](https://github.com/adi1090x/rofi/tree/1.7.0) is the most recent branch.
