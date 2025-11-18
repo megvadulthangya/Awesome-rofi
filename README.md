@@ -73,7 +73,7 @@
 
 - Then, Clone this repository -
 ```
-$ git clone --depth=1 https://github.com/adi1090x/rofi.git
+$ git clone --depth=1 https://github.com/megvadulthangya/awesome-rofi.git
 ```
 
 - Change to cloned directory and make `setup.sh` executable -
