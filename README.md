@@ -64,38 +64,70 @@
 
 ## Installation
 
-> **Everything here is created on rofi version : `1.7.4`**
+> **Everything here is created on rofi version: `1.7.4`**
 
-* First, Make sure you have the same (stable) version of rofi installed.
-  - On Arch / Arch-based : **`sudo pacman -S rofi`**
-  - On Debian / Ubuntu : **`sudo apt-get install rofi`**
-  - On Fedora : **`sudo dnf install rofi`**
+### Prerequisites
 
-- Then, Clone this repository -
-```
-$ git clone --depth=1 https://github.com/megvadulthangya/awesome-rofi.git
-```
+Make sure you have the same (stable) version of Rofi installed:
 
-- Change to cloned directory and make `setup.sh` executable -
-```
-$ cd awesome-rofi
-```
+-   **Arch / Arch-based**: `sudo pacman -S rofi`
+-   **Debian / Ubuntu**: `sudo apt-get install rofi`
+-   **Fedora**: `sudo dnf install rofi`
 
-- Run with sudo `setup.sh` to install the configs -
-```
-$ sudo bash setup.sh
+------------------------------------------------------------------------
 
-[*] Installing fonts system wide...
-[*] Updating font cache...
+## Quick Installation (Recommended for most users)
 
-[*] Creating a backup of your rofi configs...
-[*] Installing rofi configs...
-[*] Successfully Installed.
+Use this method if you only want to install the themes without keeping
+the repository files.
+
+``` 
+wget https://raw.githubusercontent.com/megvadulthangya/awesome-rofi/refs/heads/my-awesome-config/setup.sh
+sudo bash setup.sh
 ```
 
-- That's it, These themes are now installed on your system.
+This method downloads only the installation script and performs a clean
+installation without leaving unnecessary files.
 
-> **Note** : These themes are like an ecosystem, everything here is connected with each other in some way. So... before modifying anything by your own, make sure you know what you doing.
+------------------------------------------------------------------------
+
+## Repository Installation (Recommended for developers and frequent updaters)
+
+Clone the repository if you want to update frequently or contribute to
+the project.
+
+``` 
+git clone --depth=1 -b my-awesome-config https://github.com/megvadulthangya/awesome-rofi.git
+cd awesome-rofi
+sudo bash setup.sh
+```
+
+Keeping the repository allows you to update easily:
+
+``` 
+git pull
+sudo bash setup.sh
+```
+
+------------------------------------------------------------------------
+
+## What the installer does
+
+    [*] Installing fonts system wide...
+    [*] Updating font cache...
+    [*] Creating a backup of your rofi configs...
+    [*] Installing rofi configs...
+    [*] Successfully Installed.
+
+After this, the themes are fully installed on your system.
+
+------------------------------------------------------------------------
+
+## Notes
+
+These themes function as an interconnected ecosystem. Before making
+manual modifications, ensure you understand the configuration structure.
+
 
 
 ## Launchers
